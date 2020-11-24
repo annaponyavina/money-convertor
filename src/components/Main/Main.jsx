@@ -29,7 +29,7 @@ function Main({ courses }) {
   const handleRadio = (e) => {
     if (e.target.name === "from") {
       set_from(e.target.value);
-      if (e.target.value !== "usd") loadData(liter[e.target.value]);
+      loadData(liter[e.target.value]);
       set_inputs({
         ..._inputs,
         from: cutter(_inputs.to * courses[e.target.value][_to]),
@@ -65,7 +65,7 @@ function Main({ courses }) {
     getDynamic(liter[_from]).then((item) => set_history({ item }));
   }, []);
 
-  if (!courses) return "шиш тебе, нет данных";
+  if (!courses) return "Данные отсутствуют";
   return (
     <main className="main">
       <div className="container">
